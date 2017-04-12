@@ -4,8 +4,7 @@ Subroutine NWPSAF_CheckIteration( &
   Guess_Prof,              & ! inout
   Profile_incs,            & ! inout
   Profile_Variables_Reset, & ! out
-  Out_of_Range,             & ! out
-  Bmatrix                ) !in
+  Out_of_Range )
 !
 !    This software was developed within the context of 
 !    the EUMETSAT Satellite Application Facility on 
