@@ -1,0 +1,21 @@
+ INTERFACE
+   SUBROUTINE NWPSAF_Read_Background( &
+     NumObs, &       ! in
+     NumLevels, &    ! out
+     BackGrModelOB)  ! inout 
+
+     ! Modules used:
+
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          ModelOb_type
+
+     IMPLICIT NONE
+
+     ! Subroutine Arguments 
+     
+     INTEGER, INTENT(IN) :: NumObs    ! # of soundings in Observation structure
+     INTEGER, INTENT(OUT) :: NumLevels ! # of vertical levels
+     TYPE(ModelOB_type), INTENT(INOUT) :: BackGrModelOB    !BackGround at Ob
+
+   END SUBROUTINE NWPSAF_Read_Background
+END INTERFACE

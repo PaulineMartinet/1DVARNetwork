@@ -1,0 +1,29 @@
+INTERFACE
+  Subroutine NWPSAF_CO2Slice(   &
+             BTObserved,      & !in
+             RT_Params,       & !inout
+             R_Matrix,        & !in
+             UsedChans,       & !in
+             Total_Channels)    !in
+
+  USE NWPSAFMod_RTmodel, ONLY:&
+    RTParams_Type
+
+  USE NWPSAFMod_Channellist, ONLY : &
+    ChannelSelection_Type
+
+  USE NWPSAFMod_CovarianceMatrices, ONLY : &
+    R_Matrix_Type
+
+  IMPLICIT NONE
+
+  ! Subroutine Arguments
+
+  REAL, INTENT(IN)                  :: BTObserved(:) ! Observed BTs
+  TYPE(RTParams_Type), INTENT(INOUT):: RT_Params     ! Info for RT Model
+  TYPE(R_Matrix_Type), INTENT(IN)   :: R_Matrix      ! R matrix
+  TYPE(ChannelSelection_Type), INTENT(IN) :: UsedChans  ! Chans to be used
+  INTEGER, INTENT(IN)               :: Total_Channels 
+
+  END SUBROUTINE NWPSAF_CO2Slice
+END INTERFACE

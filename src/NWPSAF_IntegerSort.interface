@@ -1,0 +1,13 @@
+INTERFACE
+   SUBROUTINE NWPSAF_IntegerSort( &
+        key,   & ! in
+        index)   ! inout
+
+     IMPLICIT NONE
+
+     ! Arguments:
+     INTEGER, INTENT(IN) :: key(:)
+     INTEGER, POINTER :: index(:)
+
+   END SUBROUTINE NWPSAF_IntegerSort
+END INTERFACE

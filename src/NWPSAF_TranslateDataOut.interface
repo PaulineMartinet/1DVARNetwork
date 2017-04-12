@@ -1,0 +1,33 @@
+INTERFACE
+   SUBROUTINE NWPSAF_TranslateDataOut ( &
+        obnumber,   & ! in
+        BTObserved, & ! in
+        Background, & ! in
+        RT_Params,  & ! in
+        UsedChans,  & ! in
+        Obs)          ! inout
+
+     ! Modules used:
+
+     USE NWPSAFMod_Channellist, ONLY : &
+          ChannelSelection_Type
+
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          Ob_Type, &
+          ModelOb_Type
+
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     INTEGER, INTENT(IN) :: obnumber             ! Observation Number
+     REAL,    INTENT(IN) :: BTObserved(:)        ! Observation BT's
+     TYPE(ModelOb_type),INTENT(IN) :: Background ! Background data
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params ! RT Model Input Data
+     TYPE(ChannelSelection_Type), INTENT(IN) :: UsedChans ! Chans to be used
+     TYPE(Ob_type),  INTENT(INOUT) :: Obs        ! Observed/Retrieval data 
+
+   END SUBROUTINE NWPSAF_TranslateDataOut
+END INTERFACE

@@ -1,0 +1,24 @@
+INTERFACE
+   SUBROUTINE NWPSAF_1DVar ( &
+        Obs,         & !inout
+        Background,  & !inout
+        RT_Params)     !inout
+
+     ! Modules used:
+     
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          Ob_Type, &
+          ModelOb_Type
+
+     USE NWPSAFMod_RTmodel, ONLY :    &
+          RTParams_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     TYPE(Ob_type),     INTENT(INOUT) :: Obs        ! Observed/Retrieval data 
+     TYPE(ModelOb_type),INTENT(INOUT) :: Background ! Background data
+     TYPE(RTParams_Type),INTENT(INOUT) :: RT_Params
+
+   END SUBROUTINE NWPSAF_1DVar
+END INTERFACE

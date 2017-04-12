@@ -1,0 +1,22 @@
+INTERFACE
+   Subroutine NWPSAF_BandMultiply ( &
+        A_band,                & ! in
+        Matrix,                & ! in
+        Num_Elements_A,        & ! in
+        Num_Bands,             & ! in
+        Num_Elements_M,        & ! in
+        Matrix_Out)              ! out
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     
+     INTEGER, INTENT(IN) :: Num_Elements_A      
+     INTEGER, INTENT(IN) :: Num_Bands  
+     INTEGER, INTENT(IN) :: Num_Elements_M      
+     REAL, INTENT(IN) :: A_band(0:Num_Bands,Num_Elements_A) 
+     REAL, INTENT(IN) :: Matrix(Num_Elements_M, Num_Elements_A)  
+     REAL, INTENT(OUT) :: Matrix_Out(Num_Elements_M, Num_Elements_A) 
+     
+   End Subroutine NWPSAF_BandMultiply
+END INTERFACE

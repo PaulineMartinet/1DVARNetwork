@@ -1,0 +1,12 @@
+INTERFACE
+   SUBROUTINE Gen_FreeUnit( &
+        unit,               & ! InOut
+        ErrorStatus )         ! Out  
+     
+     IMPLICIT NONE
+
+     INTEGER, INTENT(INOUT) :: unit        ! Unit number supplied
+     INTEGER, INTENT(OUT)   :: ErrorStatus ! Error status flag
+
+   END SUBROUTINE Gen_FreeUnit
+END INTERFACE

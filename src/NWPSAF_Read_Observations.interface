@@ -1,0 +1,27 @@
+INTERFACE
+   SUBROUTINE NWPSAF_Read_Observations ( &
+        ObNumber, &      ! in
+        BackGrModelOB, & ! inout
+        Observations, &  ! inout
+        RT_Params)       ! inout
+
+     ! Modules used:
+     
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          ModelOB_type, &
+          OB_type
+     
+     USE NWPSAFMod_RTModel, ONLY : &
+          RTParams_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine Arguments 
+
+     INTEGER, INTENT(IN) :: ObNumber       ! Observation Number to Read In
+     TYPE(ModelOB_type), INTENT(INOUT) :: BackGrModelOB !BackGround at Ob
+     TYPE(OB_type), INTENT(INOUT) :: Observations  !Observation structure
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params ! RTModel Parameters Structure
+
+   END SUBROUTINE NWPSAF_Read_Observations
+END INTERFACE

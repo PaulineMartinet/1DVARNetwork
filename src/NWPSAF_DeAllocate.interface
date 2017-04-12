@@ -1,0 +1,25 @@
+INTERFACE
+   SUBROUTINE NWPSAF_DeAllocate ( &
+        Observations, &  ! inout
+        BackGrModelOb, & ! inout
+        RT_Params)       ! inout
+
+   ! Modules used:
+
+   USE NWPSAFMod_ObsInfo, ONLY : &
+        Ob_Type, &
+        ModelOb_Type
+
+   USE NWPSAFMod_RTModel, ONLY : &
+        RTParams_Type
+
+   IMPLICIT NONE 
+
+   ! Subroutine Arguments
+
+   TYPE(Ob_type),     INTENT(INOUT)  :: Observations  ! Observed/Retrieval data 
+   TYPE(ModelOb_type),INTENT(INOUT)  :: BackGrModelOb ! Background data
+   TYPE(RTParams_type),INTENT(INOUT) :: RT_Params     ! RT model data
+
+ END SUBROUTINE NWPSAF_DeAllocate
+END INTERFACE

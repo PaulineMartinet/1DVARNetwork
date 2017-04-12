@@ -1,0 +1,17 @@
+INTERFACE
+   SUBROUTINE NWPSAF_AdditionalCost_Cloud( &
+        Guess_Profile,    &  ! in
+        JAdd,             &  ! out
+        JAdd_Gradient,    &  ! out
+        JAdd_Gradient2     ) ! optional out
+
+     IMPLICIT NONE
+     
+     ! Subroutine arguments:
+     REAL, INTENT(IN)    :: Guess_Profile(:)     ! Guess Profile (on RT levels)
+     REAL, INTENT(OUT)   :: JAdd                 ! Cost function value
+     REAL, INTENT(OUT)   :: JAdd_Gradient(:)     ! Cost function gradient
+     REAL, INTENT(OUT), OPTIONAL :: JAdd_Gradient2(:,:)  ! Cost function 2nd Deriv.
+
+   End Subroutine NWPSAF_AdditionalCost_Cloud
+End INTERFACE

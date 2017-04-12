@@ -1,0 +1,18 @@
+INTERFACE
+   Subroutine NWPSAF_Initialise ( &
+        RT_Params ) ! inout
+
+     ! Modules used:
+
+
+     USE NWPSAFMod_RTmodel, ONLY :    &
+          RTParams_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine Arguments ::
+
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params
+
+   End Subroutine NWPSAF_Initialise
+END INTERFACE

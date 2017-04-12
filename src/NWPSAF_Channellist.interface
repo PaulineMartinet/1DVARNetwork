@@ -1,0 +1,11 @@
+INTERFACE
+   Subroutine NWPSAF_Channellist(fileunit)
+
+     IMPLICIT NONE
+
+     ! Subroutine Arguments 
+
+     INTEGER, INTENT(IN) :: FileUnit
+
+   End Subroutine NWPSAF_Channellist
+END INTERFACE

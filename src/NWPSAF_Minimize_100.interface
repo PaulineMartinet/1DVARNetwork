@@ -1,0 +1,32 @@
+INTERFACE
+   Subroutine NWPSAF_Minimize_100( &
+        BmatrixInverse,   & ! in
+        DeltaBT,          & ! in  
+        Num_Chans,        & ! in
+        Work_Dimension,   & ! in
+        H_Matrix,         & ! in
+        H_Matrix_T,       & ! in
+        R_SubMatrix,      & ! inout
+        Delta_Profile,    & ! inout
+        Status           )  ! out
+
+     ! Modules used:
+     
+     USE NWPSAFMod_CovarianceMatrices, ONLY : &
+          R_Matrix_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     INTEGER, INTENT(IN) :: Num_Chans         ! No. of channels to be used 
+     INTEGER, INTENT(IN) :: Work_Dimension   
+     REAL, INTENT(IN) :: BmatrixInverse(:,:) ! inverse of B-matrix
+     REAL, INTENT(IN) :: DeltaBT(:)          ! y-y(x)
+     REAL, INTENT(INOUT) :: Delta_Profile(:) !profile increments 
+     REAL, INTENT(IN) :: H_Matrix(:,:)       ! Jacobian
+     REAL, INTENT(IN) :: H_Matrix_T(:,:)     ! (Jacobian)^T
+     TYPE(R_Matrix_Type), INTENT(INOUT) :: R_SubMatrix  ! R Matrix for selected chans.
+     INTEGER, INTENT(OUT) :: Status
+     
+   End Subroutine NWPSAF_Minimize_100
+END INTERFACE

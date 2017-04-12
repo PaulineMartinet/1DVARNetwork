@@ -1,0 +1,12 @@
+INTERFACE
+   Subroutine NWPSAF_InitBmatrix( &
+        file_unit)         ! in
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+
+     INTEGER, INTENT(IN) :: file_unit      ! I/O unit number
+ 
+   End Subroutine NWPSAF_InitBmatrix
+END INTERFACE

@@ -1,0 +1,25 @@
+INTERFACE
+   SUBROUTINE NWPSAF_SetUpBackground( &
+        BackGround,      & ! in
+        obnumber,        & ! in
+        RT_Params,       & ! out
+        Valid_data )       ! out
+
+     ! Modules used:
+
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          ModelOb_Type
+     
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+     
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     TYPE(ModelOb_type),INTENT(IN) :: Background ! Background data
+     INTEGER, INTENT(IN) :: obnumber        ! Profile number
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params ! Data for RT Model
+     LOGICAL, INTENT(OUT) :: Valid_Data      ! Error flag
+
+   END SUBROUTINE NWPSAF_SetUpBackground
+END INTERFACE

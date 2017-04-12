@@ -1,0 +1,30 @@
+Interface
+   Subroutine NWPSAF_Gastro_Interface( &
+        Fastmodel_Mode,          & ! in
+        RT_Params,               & ! inout
+        WhichProf,               & ! in
+        UsedChans,               & ! in
+        ErrorCode)                 ! out
+       
+     ! Modules used:
+
+     USE NWPSAFMod_Channellist, ONLY : &
+          ChannelSelection_Type
+     
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+     
+     IMPLICIT NONE
+     
+     ! Subroutine arguments:
+     
+     INTEGER, INTENT(IN)   :: Fastmodel_Mode  ! Mode in which the fastmodel is 
+                                              ! to be run
+     TYPE(RTParams_Type), INTENT(INOUT)  :: RT_Params   ! Info for RT Model
+     INTEGER, INTENT(IN)                 :: WhichProf   ! Which profile to use 
+     TYPE(ChannelSelection_Type), INTENT(IN) :: UsedChans
+     INTEGER, INTENT(OUT)                    :: ErrorCode
+     
+
+   End Subroutine NWPSAF_Gastro_Interface
+End Interface

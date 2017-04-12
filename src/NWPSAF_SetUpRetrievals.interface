@@ -1,0 +1,7 @@
+INTERFACE
+   SUBROUTINE NWPSAF_SetUpRetrievals(RTModel)
+
+     INTEGER, INTENT(IN) :: RTModel     
+ 
+   END SUBROUTINE NWPSAF_SetUpRetrievals
+END INTERFACE

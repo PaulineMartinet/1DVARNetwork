@@ -1,0 +1,13 @@
+INTERFACE
+   SUBROUTINE NWPSAF_StratosExtrap( &
+        Pressures, & ! in
+        Tprofile)    !inout
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     REAL,    INTENT(IN)    :: Pressures(:)  ! in Pa
+     REAL,    INTENT(INOUT) :: Tprofile(:)
+
+   END SUBROUTINE NWPSAF_StratosExtrap
+END INTERFACE

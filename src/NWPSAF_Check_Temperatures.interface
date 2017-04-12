@@ -1,0 +1,19 @@
+INTERFACE
+   FUNCTION NWPSAF_check_temperatures( Level_temperatures,        &  ! in
+        Number_of_levels,          &  ! in
+        Surface_air_temperature,   &  ! in
+        Surface_skin_temperature ) &  ! in
+        RESULT (Valid_data)
+  
+     IMPLICIT NONE
+     
+     ! Subroutine arguments:
+     INTEGER, INTENT(IN) :: Number_of_levels
+     REAL,    INTENT(IN) :: Surface_air_temperature
+     REAL,    INTENT(IN) :: Surface_skin_temperature
+     REAL,    INTENT(IN) :: Level_temperatures(:)
+
+     LOGICAL :: Valid_data   ! Result of function = .FALSE. for bad data
+ 
+   END FUNCTION NWPSAF_check_temperatures
+END INTERFACE

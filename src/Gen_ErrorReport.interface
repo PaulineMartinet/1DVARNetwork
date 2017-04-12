@@ -1,0 +1,18 @@
+INTERFACE
+   SUBROUTINE Gen_ErrorReport( &
+        NameOfRoutine,          & ! in
+        Message,                & ! in
+        ErrorStatus)              ! in
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments
+     
+     CHARACTER(LEN=*), INTENT(IN) :: NameOfRoutine ! Calling this one
+     CHARACTER(LEN=*), INTENT(IN) :: Message(:)    ! Message to output
+     INTEGER, INTENT(IN)          :: ErrorStatus   ! Input error code
+     !LOGICAL, OPTIONAL, INTENT(IN) :: Local  ! error local to a PE 
+                                              ! (not used here)
+
+   END SUBROUTINE Gen_ErrorReport
+END INTERFACE

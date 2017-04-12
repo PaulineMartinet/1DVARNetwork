@@ -1,0 +1,18 @@
+INTERFACE
+   SUBROUTINE NWPSAF_ReadHeaders ( &
+        NumVars,       & ! in
+        String,        & ! inout
+        Vars,          & ! out
+        Status)          ! inout
+
+     IMPLICIT NONE
+     
+     ! Subroutine Arguments:
+     
+     INTEGER          , INTENT(IN)    :: NumVars
+     CHARACTER (LEN=*), INTENT(INOUT) :: String
+     REAL             , INTENT(OUT)   :: Vars(NumVars)
+     INTEGER          , INTENT(OUT)   :: Status
+
+   END Subroutine NWPSAF_ReadHeaders
+END INTERFACE

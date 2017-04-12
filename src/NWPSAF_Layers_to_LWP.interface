@@ -1,0 +1,25 @@
+INTERFACE
+   SUBROUTINE NWPSAF_Layers_to_LWP( &
+        clw,  & ! in
+        RT_Params, & !in
+        lwp)    ! out
+     
+     ! Modules used:
+      
+     USE NWPSAFMod_Constants, ONLY :  & 
+          gravity
+     
+     USE NWPSAFMod_RTmodel, ONLY : &
+          Num_RTlevels, &
+    RTParams_Type
+     
+ !Use parkind1, Only : jpim,jprb
+     IMPLICIT NONE
+     ! Subroutine arguments
+
+     REAL           :: clw(Num_RTlevels) ! cloud liquid water on RTTOV levels
+     REAL            :: lwp             ! Liquid water path
+     TYPE(RTParams_Type), INTENT(INOUT):: RT_Params     ! Info for RT Model
+     
+   END SUBROUTINE NWPSAF_Layers_to_LWP
+END INTERFACE

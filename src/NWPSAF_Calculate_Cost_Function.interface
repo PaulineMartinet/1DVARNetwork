@@ -1,0 +1,38 @@
+INTERFACE
+   SUBROUTINE NWPSAF_Calculate_Cost_Function( &
+        BMatrixInverse,   &  ! in
+        R_SubMatrix,      &  ! inout
+        Delta_Profile,    &  ! in
+        DeltaBT,          &  ! in
+        Work_Dimension,   &  ! in
+        Eqn_101,          &  ! in
+        Guess_Profile,    &  ! in
+        JCost,            &  ! out
+        Status,           &  ! out 
+        H_Matrix_T,       &  ! optional in 
+        JCost_Gradient)      ! optional out
+
+     ! Modules Used
+     
+     USE NWPSAFMod_CovarianceMatrices, ONLY : &
+          R_Matrix_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     REAL, INTENT(IN)    :: BmatrixInverse(:,:)  ! inverse of B-matrix
+     TYPE(R_Matrix_Type), INTENT(INOUT) :: R_SubMatrix ! chan-selected R matrix
+     REAL, INTENT(IN)    :: Delta_Profile(:)     ! Profile increments 
+     ! (on minimisation levels)
+     REAL, INTENT(IN)    :: DeltaBT(:)           ! Obs-Ret BT difference
+     INTEGER, INTENT(IN) :: Work_Dimension
+     LOGICAL, INTENT(IN) :: Eqn_101   ! Rogers's Eqn. 101 is being used.
+     REAL, INTENT(IN)    :: Guess_Profile(:) ! Guess prof., used in Additional Cost
+     REAL, INTENT(OUT)   :: JCost     ! Cost function value
+     INTEGER, INTENT(OUT):: Status    ! Status of calculation (0=OK)
+     REAL, OPTIONAL, INTENT(IN)    :: H_Matrix_T(:,:) ! Transpose of Jacobian
+     REAL, OPTIONAL, INTENT(OUT) :: JCost_Gradient(:) ! Gradient of cost 
+                                                      ! function
+
+   End Subroutine NWPSAF_Calculate_Cost_Function
+END INTERFACE

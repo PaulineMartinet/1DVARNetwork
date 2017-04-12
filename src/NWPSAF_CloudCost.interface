@@ -1,0 +1,34 @@
+INTERFACE
+   Subroutine NWPSAF_CloudCost( &
+        BTobserved, &       ! in
+        Bmatrix,    &       ! in
+        R_Matrix,   &       ! in
+        UsedChans,  &       ! in
+        RT_Params,  &       ! inout
+        Cost,       &       ! out
+        RTErrorCode      )  ! out
+
+     ! Modules used:
+     
+     USE NWPSAFMod_Channellist, ONLY : &
+          ChannelSelection_Type
+
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+
+     USE NWPSAFMod_CovarianceMatrices, ONLY : &
+          R_Matrix_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     REAL, INTENT(IN)     :: BTobserved(:) ! Observed BTs
+     REAL, INTENT(IN)     :: BMatrix(:,:)  ! Background Error Covariance Matrix
+     TYPE(R_Matrix_Type), INTENT(IN) :: R_Matrix  ! R-Matrix
+     TYPE(ChannelSelection_Type), INTENT(IN) :: UsedChans ! channels to use
+     TYPE(RTParams_Type),INTENT(INOUT) :: RT_Params ! RT model input data
+     REAL, INTENT(OUT)    :: Cost        ! the calculated cloud cost 
+     INTEGER, INTENT(OUT) :: RTErrorCode ! Error code from RT model
+
+   End Subroutine NWPSAF_CloudCost
+END INTERFACE

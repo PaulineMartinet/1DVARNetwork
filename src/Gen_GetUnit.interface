@@ -1,0 +1,12 @@
+INTERFACE
+   SUBROUTINE Gen_GetUnit( &
+        unit,              & ! out
+        ErrorStatus )        ! Out  
+
+     IMPLICIT NONE
+
+     INTEGER, INTENT(OUT) :: unit        ! Unit number supplied
+     INTEGER, INTENT(OUT) :: ErrorStatus ! Error status flag
+
+   END SUBROUTINE Gen_GetUnit
+END INTERFACE

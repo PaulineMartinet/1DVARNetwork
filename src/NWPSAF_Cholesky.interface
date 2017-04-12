@@ -1,0 +1,17 @@
+INTERFACE
+   SUBROUTINE NWPSAF_CHOLESKY(U, &
+        V, &
+        N, &
+        Q, &
+        ErrorCode) 
+
+     IMPLICIT NONE
+
+     INTEGER, INTENT(IN)  :: N  
+     REAL, INTENT(IN)     :: U(N,N)    
+     REAL, INTENT(IN)     :: v(N)
+     REAL, INTENT(OUT)    :: q(N)
+     INTEGER, INTENT(OUT) :: ErrorCode 
+
+   END SUBROUTINE NWPSAF_CHOLESKY
+END INTERFACE

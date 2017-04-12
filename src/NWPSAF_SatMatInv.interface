@@ -1,0 +1,18 @@
+INTERFACE
+   Subroutine NWPSAF_SatMatInv ( &
+        N, M,        & ! in
+        A,           & ! inout
+        Status,      & ! out
+        Matrix)        ! optional inout     
+
+     Implicit None
+
+     ! Subroutine arguments
+     Integer, Intent(IN)    :: n        
+     Integer, Intent(IN)    :: m        
+     Real, Intent(INOUT)    :: A(n,n)   
+     Integer, Intent(OUT)   :: Status   
+     REAL, OPTIONAL, INTENT(INOUT) :: Matrix(N,M) 
+ 
+   END Subroutine NWPSAF_SatMatInv
+END INTERFACE

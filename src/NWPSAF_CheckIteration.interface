@@ -1,0 +1,21 @@
+INTERFACE
+   Subroutine NWPSAF_CheckIteration( &
+       Guess_Prof,              & ! inout
+        Profile_incs,            & ! inout
+        Profile_Variables_Reset, & ! out
+        Out_of_Range,             &  ! out
+        Bmatrix                ) !in
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     REAL, INTENT(INOUT) :: Guess_Prof(:)     ! Input (guess) profile
+     REAL, INTENT(INOUT) :: Profile_incs(:)   ! This is the increment vector
+                                              ! used in the retrieval
+     LOGICAL, INTENT(OUT)   :: Profile_Variables_Reset
+     LOGICAL, INTENT(OUT)   :: Out_of_range
+
+     REAL,    INTENT(IN)  :: Bmatrix(:,:)
+
+   End Subroutine NWPSAF_CheckIteration
+END INTERFACE

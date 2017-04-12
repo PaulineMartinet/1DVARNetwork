@@ -1,0 +1,12 @@
+INTERFACE
+   SUBROUTINE Gen_MessageReport( &
+        NameOfRoutine,           & ! in
+        Message)                  ! in
+
+     IMPLICIT NONE
+
+     CHARACTER(LEN=*), INTENT(IN) :: NameOfRoutine ! Calling this one
+     CHARACTER(LEN=*), INTENT(IN) :: Message(:)    ! Message to output
+
+   END SUBROUTINE Gen_MessageReport
+END INTERFACE

@@ -1,0 +1,23 @@
+INTERFACE
+   Subroutine NWPSAF_BandInverse ( &
+        n,           & ! in
+        p,           & ! in
+        pout,        & ! in
+        A,           & ! in
+        AI,          & ! out
+        Status )       ! out
+
+     Implicit None
+
+     ! Subroutine arguments
+     Integer, Intent(IN)  :: n            ! order of A
+     Integer, Intent(IN)  :: p            ! Number of bands in A
+     Integer, Intent(IN)  :: pout         ! Number of bands in A^-1
+     Real, Intent(IN)     :: A(0:p,n)     ! Input matrix
+     Real, Intent(OUT)    :: AI(0:pout,n) ! Inverse of A
+     Integer, Intent(OUT) :: Status       ! 0 if all ok
+                                          ! 1 if matrix is not positive 
+                                          ! definite
+
+   END Subroutine NWPSAF_BandInverse
+END INTERFACE

@@ -1,0 +1,44 @@
+INTERFACE
+   Subroutine NWPSAF_CloudyOrNot( &
+        Obs,              & ! inout
+        BTObserved,       & ! in
+        BMatrix,          & ! in
+        R_Matrix,         & ! in
+        UsedChans,        & ! in
+        RT_Params,        & ! inout
+        Valid_Data,       & ! inout
+        Cloudy,           & ! inout
+        HighCloud,        & ! inout
+        RTerrorcode       ) ! out
+
+     ! Modules used:
+
+     USE NWPSAFMod_Channellist, ONLY : &
+          ChannelSelection_Type
+
+     USE NWPSAFMod_CovarianceMatrices, ONLY : &
+          R_Matrix_Type
+
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          Ob_Type
+
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+
+     TYPE(Ob_type), INTENT(INOUT) :: Obs    ! Observed/Retrieval data 
+     REAL,    INTENT(IN)    :: BTobserved(:)   ! Observed BTs
+     REAL, INTENT(IN)       :: BMatrix(:,:)    ! Background Error Covariance
+     TYPE(R_Matrix_Type), INTENT(IN)  :: R_Matrix  ! R matrix
+     TYPE(ChannelSelection_Type), INTENT(IN)  :: UsedChans ! Chans to be used
+     TYPE(RTParams_Type), INTENT(INOUT)  :: RT_Params     ! Info for RT Model
+     LOGICAL, INTENT(INOUT) :: Valid_Data      ! Data flag
+     LOGICAL, INTENT(INOUT) :: Cloudy          ! Data flag
+     LOGICAL, INTENT(INOUT) :: HighCloud       ! Data flag
+     INTEGER, INTENT(OUT)   :: RTerrorcode     ! Error from RT Model 
+
+   End Subroutine NWPSAF_CloudyOrNot
+END INTERFACE

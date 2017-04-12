@@ -1,0 +1,50 @@
+INTERFACE
+   Subroutine NWPSAF_Minimize_100ML( &
+        BTObserved,       & ! in 
+        RT_Params,        & ! in
+        BmatrixInverse,   & ! in
+        Back,             & ! in
+        UsedChans,        & ! in
+        Work_Dimension,   & ! in
+        R_SubMatrix,      & ! inout
+        DeltaBT,          & ! inout  
+        Delta_Profile,    & ! inout
+        Gamma,            & ! inout
+        JOld,             & ! inout
+        Status,           & ! out
+        Out_of_Range,     & ! out
+        Bmatrix    )        ! in
+
+     ! Modules used:
+     
+     USE NWPSAFMod_Channellist, ONLY : &
+          ChannelSelection_Type
+     
+     USE NWPSAFMod_CovarianceMatrices, ONLY : &
+          R_Matrix_Type
+     
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+     
+     IMPLICIT NONE
+     
+     ! Subroutine arguments:
+     REAL, INTENT(IN)     :: BTObserved(:)            ! Observation BT's
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params  ! RT Model Data
+     REAL, INTENT(IN)     :: BmatrixInverse(:,:)      ! inverse of B-matrix
+     REAL, INTENT(IN)     :: Back(:)                  ! Background profile
+     TYPE(ChannelSelection_Type), INTENT(IN) :: UsedChans  ! Chans to be used
+     INTEGER, INTENT(IN) :: Work_Dimension            ! Dimension of work array
+     TYPE(R_Matrix_Type), INTENT(INOUT) :: R_SubMatrix ! R Matrix for selected 
+     ! channels
+     REAL, INTENT(INOUT)  :: DeltaBT(:)            ! y-y(x)
+     REAL, INTENT(INOUT)  :: Delta_Profile(:)      ! profile increments 
+     REAL, INTENT(INOUT)  :: Gamma  ! Used in Marquart-Levenberg minimisation
+     REAL, INTENT(INOUT)  :: JOld   ! Cost function value
+     INTEGER, INTENT(OUT) :: Status
+     LOGICAL, INTENT(OUT) :: Out_of_Range ! Gross limts exceeded in minimisation          
+ 
+     REAL, INTENT(IN)     :: Bmatrix(:,:)      ! B-matrix
+
+   End Subroutine NWPSAF_Minimize_100ML
+END INTERFACE

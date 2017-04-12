@@ -1,0 +1,20 @@
+INTERFACE
+   Subroutine NWPSAF_InitRmatrix( &
+        file_unit,         & ! in
+        total_channels,    & ! in
+        RT_Params)           ! inout
+     ! Modules used:
+     
+     USE NWPSAFMod_RTModel, ONLY : &
+          RTParams_Type
+     
+     
+     IMPLICIT NONE
+     
+     ! Subroutine arguments:
+     INTEGER, INTENT(IN)    :: file_unit  !I/O unit number
+     INTEGER, INTENT(IN)    :: total_channels
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params  ! Data used in 
+                                                ! RT model interface
+   END Subroutine NWPSAF_InitRmatrix
+END INTERFACE

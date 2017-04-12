@@ -1,0 +1,43 @@
+INTERFACE
+   Subroutine NWPSAF_Minimize( &
+        Obs,             & ! inout
+        BTObserved,      & ! in
+        Bmatrix,         & ! in
+        BmatrixInverse,  & ! in
+        R_matrix,        & ! in
+        obnumber,        & ! in
+        UsedChans,       & ! in
+        RT_Params,       & ! inout
+        ErrorCode , &
+        converged       ) ! out
+
+     ! Modules used:
+
+     USE NWPSAFMod_Channellist, ONLY : &
+          ChannelSelection_Type
+
+     USE NWPSAFMod_CovarianceMatrices, ONLY : &
+          R_Matrix_Type
+
+     USE NWPSAFMod_ObsInfo, ONLY : &
+          Ob_Type
+
+     USE NWPSAFMod_RTmodel, ONLY : &
+          RTParams_Type
+
+     IMPLICIT NONE
+
+     ! Subroutine arguments:
+     TYPE(Ob_type), INTENT(INOUT) :: Obs      ! Observed/Retrieval data 
+     REAL,    INTENT(IN) :: BTObserved(:)     ! Observation BT's
+     REAL,    INTENT(IN) :: Bmatrix(:,:)      ! B-matrix
+     REAL,    INTENT(IN) :: BmatrixInverse(:,:)! inverse of B-matrix
+     TYPE(R_Matrix_Type), INTENT(IN) :: R_Matrix ! R-Matrix
+     INTEGER, INTENT(IN) :: obnumber          ! Profile number
+     TYPE(ChannelSelection_Type), INTENT(IN) :: UsedChans  ! Chans to be used
+     TYPE(RTParams_Type), INTENT(INOUT) :: RT_Params ! RT Model Data
+     INTEGER, INTENT(OUT) :: ErrorCode
+     LOGICAL, INTENT(OUT) :: converged
+
+   End Subroutine NWPSAF_Minimize
+END INTERFACE

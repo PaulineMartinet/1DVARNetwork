@@ -1,0 +1,24 @@
+INTERFACE
+  SUBROUTINE NWPSAF_OpenFile( &
+       file_pathname, & ! in
+       WhatAccess,    & ! in
+       WhatAction,    & ! in
+       WhatStatus,    & ! in
+       WhatForm,      & ! inout
+       file_unit,     & ! out
+       RecordLength   ) ! optional in
+
+    IMPLICIT NONE
+
+    ! Subroutine arguments:
+    CHARACTER (LEN=*), INTENT(IN) :: file_pathname
+    CHARACTER (LEN=*), INTENT(IN) :: WhatAccess
+    CHARACTER (LEN=*), INTENT(IN) :: WhatAction
+    CHARACTER (LEN=*), INTENT(IN) :: WhatForm
+    CHARACTER (LEN=*), INTENT(IN) :: WhatStatus
+    INTEGER, INTENT(OUT) :: file_unit
+    INTEGER, OPTIONAL, INTENT(IN) :: RecordLength
+
+  END SUBROUTINE NWPSAF_OpenFile
+
+END INTERFACE
